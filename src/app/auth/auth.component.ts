@@ -14,15 +14,13 @@ export class AuthComponent implements OnInit {
 	private login: string = '';
 	private password: string = '';	
 
-	@Output() onAuthorize = new EventEmitter<boolean>();
+	@Output() onAuthorize = new EventEmitter<Object>();
 	
 	ngOnInit() {
 		this.getAuthData();
 	}
 
 	constructor(private authService: AuthService) { };
-
-  private isAuthorized: boolean = false;
 
   private getAuthData() {
     let self = this;
@@ -39,7 +37,10 @@ export class AuthComponent implements OnInit {
 		this.authData.forEach(function(item) {
 		  if(item.login.trim() == login.trim() && item.password.trim() == password.trim()) {
 		  	//console.log('!!');
-		  	this_.onAuthorize.emit(true);
+		  	this_.onAuthorize.emit({
+		  		authorize: true,
+		  		login: login
+		  	});
 		  }
 		});		
 	};

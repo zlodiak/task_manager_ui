@@ -1,7 +1,7 @@
 {{ isAuthorized }}
 <br>
 
-{{ authData | json }}
+welcome, {{ login }}
 <br>
 
 <app-auth *ngIf="!isAuthorized" (onAuthorize)="setAuthorizeState($event)"></app-auth>

@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
 
 	public isAuthorized: boolean = false;
+	public login: string = '';
 	
 	ngOnInit() {
 
@@ -17,9 +18,10 @@ export class AppComponent {
 
 	constructor() { };
 
-	private setAuthorizeState(state) {
-		//console.log(state);
-		this.isAuthorized = state;
+	private setAuthorizeState(event) {
+		console.log(event);
+		this.isAuthorized = event.authorize;
+		this.login = event.login;
 	};
 
 }
