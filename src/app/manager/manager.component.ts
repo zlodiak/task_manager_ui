@@ -18,13 +18,20 @@ export class ManagerComponent implements OnInit {
 	private tasks: any[] = [];
   private taskObj: Object = {};
 
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService) { };
 
   ngOnInit() {
-  	this.getTasks();
+    this.getTasks();
+    /*let this_ = this;
+    setInterval(function() {
+      this_.getTasks();
+    }, 3000);*/
+
+  	
   }
 
   private getTasks(): void {
+    console.log('get tasks');
     this.tasksService
         .getTasks()
         .subscribe(data => {     
