@@ -13,6 +13,7 @@ import { DetailsComponent } from './details/details.component';
 
 import { AuthService } from './services/auth.service';
 import { TasksService } from './services/tasks.service';
+import { DateService } from './services/date.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,11 @@ import { TasksService } from './services/tasks.service';
     FormsModule,
     BrowserModule
   ],
-  providers: [AuthService, TasksService],
+  providers: [
+    AuthService, 
+    TasksService, 
+    DateService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

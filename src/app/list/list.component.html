@@ -43,9 +43,9 @@
 		<tr class="task" *ngFor="let task of tasks | orderBy: sortColumn: sortDirection" (click)="openDetails(task)">
 			<td class="status" [innerHTML]="task.status" *ngIf="task.login == 'kalinin'"></td>
 			<td class="title" [innerHTML]="task.title" *ngIf="task.login == 'kalinin'"></td>
-			<td class="date" [innerHTML]="task.date" *ngIf="task.login == 'kalinin'"></td>
-			<td class="planned-time" [innerHTML]="task.planned_time_sec" *ngIf="task.login == 'kalinin'"></td>
-			<td class="elapsed-time" [innerHTML]="task.elapsed_time_sec" *ngIf="task.login == 'kalinin'"></td>
+			<td class="date" [innerHTML]="dateFormatter(task.date)" *ngIf="task.login == 'kalinin'"></td>
+			<td class="planned-time" [innerHTML]="secondsFormatter(task.planned_time_sec)" *ngIf="task.login == 'kalinin'"></td>
+			<td class="elapsed-time" [innerHTML]="secondsFormatter(task.elapsed_time_sec)" *ngIf="task.login == 'kalinin'"></td>
 			<td class="priority" [innerHTML]="task.priority" *ngIf="task.login == 'kalinin'"></td>
 		</tr>	
 	</tbody>

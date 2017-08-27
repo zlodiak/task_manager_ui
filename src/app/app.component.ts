@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +18,7 @@ export class AppComponent {
 	constructor() { };
 
 	private setAuthorizeState(event) {
-		console.log(event);
+		//console.log(event);
 		this.isAuthorized = event.authorize;
 		this.login = event.login;
 	};

@@ -10,7 +10,7 @@ export class TasksService {
   constructor(private http: Http) { };
 
   getTasks(): Observable<any> {
-  	let result = this.http.get('http://localhost:4200/assets/tasks.json');
+  	let result = this.http.get('../assets/tasks.json');
   	return result;
   }  
 

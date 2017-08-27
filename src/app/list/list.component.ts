@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
+import { DateService } from '../services/date.service';
+
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -15,7 +18,7 @@ export class ListComponent implements OnInit {
 
 	@Output() onOpenDetails = new EventEmitter<Object>();
 
-  constructor() { }
+  constructor(private dateService: DateService) { }
 
   ngOnInit() {
   	console.log(this.tasks);
@@ -30,5 +33,13 @@ export class ListComponent implements OnInit {
       this.sortColumn = column;
       this.sortDirection = direction;
   };
+
+  private dateFormatter(unixDate): string {
+    return this.dateService.fromUnixToHuman(unixDate);
+  };
+
+  private secondsFormatter(seconds): string {
+    return this.dateService.secondsToHuman(seconds);
+  };  
 
 }
