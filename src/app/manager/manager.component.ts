@@ -12,7 +12,8 @@ import 'rxjs/add/operator/map'
 })
 export class ManagerComponent implements OnInit {
 
-	@Input() login: string;
+  @Input() login: string;
+	@Input() isTableMode: boolean;
 
 	private isDetailsMode = false;
 	private tasks: any[] = [];

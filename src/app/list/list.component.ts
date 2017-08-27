@@ -11,10 +11,11 @@ import { DateService } from '../services/date.service';
 export class ListComponent implements OnInit {
 
   private sortColumn: string = 'status';
-  private sortDirection: boolean = true;
+  private sortDirection: boolean = true;  
 
 	@Input() tasks: any[];
 	@Input() login: string;
+  @Input() isTableMode: boolean;
 
 	@Output() onOpenDetails = new EventEmitter<Object>();
 
@@ -25,7 +26,7 @@ export class ListComponent implements OnInit {
   }
 
   private openDetails(taskObj) {
-  	//console.log(taskObj);
+  	console.log(taskObj);
   	this.onOpenDetails.emit(taskObj);  	
   }
 

@@ -1,4 +1,4 @@
-.tasks{
+.table{
 	width: 100%;
 }
 
@@ -6,3 +6,76 @@
 		width: 100%;
 		display: block;
 	}
+
+	.asc,
+	.desc{
+		cursor: pointer;
+	}
+
+
+.tile{
+
+}
+
+	.tile .panel{
+		background: cyan;
+		padding: 10px;
+	}
+
+		.tile .title{
+			font-weight: bold;
+			display: inline-block;
+		}
+
+		.tile .date:before{
+			content: '(';
+		}
+
+		.tile .date:after{
+			content: ')';
+		}		
+
+		.tile .date{
+			display: inline-block;
+			font-size: 80%;
+		}
+
+		.tile .info{
+			padding-top: 10px;
+		}
+
+			.tile .status:before{
+				content: 'Статус: ';
+				font-weight: normal;
+			}
+
+			.tile .status{
+				font-weight: bold;
+			}
+
+			.tile .priority:before{
+				content: 'Приоритет: ';
+				font-weight: normal;
+			}
+
+			.tile .priority{
+				font-weight: bold;
+			}
+
+			.tile .planned-time:before{
+				content: 'Планируемое время: ';
+				font-weight: normal;
+			}
+
+			.tile .planned-time{
+				font-weight: bold;
+			}
+
+			.tile .elapsed-time:before{
+				content: 'Затраченное время: ';
+				font-weight: normal;
+			}
+
+			.tile .elapsed-time{
+				font-weight: bold;
+			}						

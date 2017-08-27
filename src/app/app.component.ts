@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
-	public isAuthorized: boolean = true;
+	public isAuthorized: boolean = false;
 	public login: string = '';
+	private isTableMode = true;
 	
 	ngOnInit() {
 
@@ -21,6 +22,10 @@ export class AppComponent {
 		//console.log(event);
 		this.isAuthorized = event.authorize;
 		this.login = event.login;
+	};
+
+	private setViewMode(mode): void {
+		this.isTableMode = mode;
 	};
 
 }

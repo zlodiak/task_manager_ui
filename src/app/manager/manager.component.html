@@ -1,6 +1,7 @@
 <app-list *ngIf="!isDetailsMode" 
 					[tasks]="tasks" 
 					[login]="login" 
+					[isTableMode]="isTableMode" 
 					(onOpenDetails)="fillDetails($event)"></app-list>
 
 <app-details 	*ngIf="isDetailsMode" 

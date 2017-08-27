@@ -1,4 +1,4 @@
-<table class="tasks table">
+<table class="tasks table" *ngIf="isTableMode">
 	<thead>
 		<tr>
 			<th>
@@ -13,47 +13,87 @@
 
 			<th>
 				<span class="head">Название</span>
-				<span class="pull-right desc" (click)="setSortColumn('title', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
-				<span class="pull-right asc" (click)="setSortColumn('title', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>				
+				<span class="pull-right desc" (click)="setSortColumn('title', true)">
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				</span>
+				<span class="pull-right asc" (click)="setSortColumn('title', false)">
+					<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+				</span>				
 			</th>
 
 			<th>
 				<span class="head">Дата создания</span>
-				<span class="pull-right desc" (click)="setSortColumn('date', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
-				<span class="pull-right asc" (click)="setSortColumn('date', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>				
+				<span class="pull-right desc" (click)="setSortColumn('date', true)">
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				</span>
+				<span class="pull-right asc" (click)="setSortColumn('date', false)">
+					<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+				</span>				
 			</th>
 
 			<th>
 				<span class="head">Планируемое время</span>
-				<span class="pull-right desc" (click)="setSortColumn('planned_time_sec', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
-				<span class="pull-right asc" (click)="setSortColumn('planned_time_sec', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>				
+				<span class="pull-right desc" (click)="setSortColumn('planned_time_sec', true)">
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				</span>
+				<span class="pull-right asc" (click)="setSortColumn('planned_time_sec', false)">
+					<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+				</span>				
 			</th>
 
 			<th>
 				<span class="head">Затраченное время</span>
-				<span class="pull-right desc" (click)="setSortColumn('elapsed_time_sec', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
-				<span class="pull-right asc" (click)="setSortColumn('elapsed_time_sec', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>
+				<span class="pull-right desc" (click)="setSortColumn('elapsed_time_sec', true)">
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				</span>
+				<span class="pull-right asc" (click)="setSortColumn('elapsed_time_sec', false)">
+					<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+				</span>
 			</th>
 
 			<th>
 				<span class="head">Приоритет</span>
-				<span class="pull-right desc" (click)="setSortColumn('priority', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
-				<span class="pull-right asc" (click)="setSortColumn('priority', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>				
+				<span class="pull-right desc" (click)="setSortColumn('priority', true)">
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				</span>
+				<span class="pull-right asc" (click)="setSortColumn('priority', false)">
+					<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+				</span>				
 			</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr class="task" *ngFor="let task of tasks | orderBy: sortColumn: sortDirection" (click)="openDetails(task)">
-			<td class="status" [innerHTML]="task.status" *ngIf="task.login == 'kalinin'"></td>
-			<td class="title" [innerHTML]="task.title" *ngIf="task.login == 'kalinin'"></td>
-			<td class="date" [innerHTML]="dateFormatter(task.date)" *ngIf="task.login == 'kalinin'"></td>
-			<td class="planned-time" [innerHTML]="secondsFormatter(task.planned_time_sec)" *ngIf="task.login == 'kalinin'"></td>
-			<td class="elapsed-time" [innerHTML]="secondsFormatter(task.elapsed_time_sec)" *ngIf="task.login == 'kalinin'"></td>
-			<td class="priority" [innerHTML]="task.priority" *ngIf="task.login == 'kalinin'"></td>
+			<td class="status" [innerHTML]="task.status" *ngIf="task.login == login"></td>
+			<td class="title" [innerHTML]="task.title" *ngIf="task.login == login"></td>
+			<td class="date" [innerHTML]="dateFormatter(task.date)" *ngIf="task.login == login"></td>
+			<td class="planned-time" [innerHTML]="secondsFormatter(task.planned_time_sec)" *ngIf="task.login == login"></td>
+			<td class="elapsed-time" [innerHTML]="secondsFormatter(task.elapsed_time_sec)" *ngIf="task.login == login"></td>
+			<td class="priority" [innerHTML]="task.priority" *ngIf="task.login == login"></td>
 		</tr>	
 	</tbody>
 </table>
+
+<div class="tile row" *ngIf="!isTableMode">
+	<ng-container *ngFor="let task of tasks">
+		<div class="col-sm-3"  *ngIf="task.login == login" (click)="openDetails(task)">
+			<div class=" panel panel-default">
+				<div class="title" [innerHTML]="task.title"></div>
+				<div class="date" [innerHTML]="dateFormatter(task.date)"></div>
+				<div class="info">
+					<div class="status" [innerHTML]="task.status"></div>					
+					<div class="priority" [innerHTML]="task.priority"></div>				
+					<div class="planned-time" [innerHTML]="secondsFormatter(task.planned_time_sec)"></div>
+					<div class="elapsed-time" [innerHTML]="secondsFormatter(task.elapsed_time_sec)"></div>					
+				</div>	
+			</div>  	
+	  </div>
+  </ng-container>
+</div>
+
+
+
 
 
 
