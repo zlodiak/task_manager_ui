@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
 
-	public isAuthorized: boolean = false;
+	public isAuthorized: boolean = true;
 	public login: string = '';
 	
 	ngOnInit() {
