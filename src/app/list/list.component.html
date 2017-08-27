@@ -1,0 +1,11 @@
+<table class="tasks" border="1">
+	<tr class="task" *ngFor="let task of tasks" (click)="openDetails(task)">
+		<td class="status" [innerHTML]="task.status" *ngIf="task.login == 'kalinin'"></td>
+		<td class="title" [innerHTML]="task.title" *ngIf="task.login == 'kalinin'"></td>
+		<td class="date" [innerHTML]="task.date" *ngIf="task.login == 'kalinin'"></td>
+		<td class="planned-time" [innerHTML]="task.planned_time_sec" *ngIf="task.login == 'kalinin'"></td>
+		<td class="elapsed-time" [innerHTML]="task.elapsed_time_sec" *ngIf="task.login == 'kalinin'"></td>
+	</tr>
+</table>
+
+

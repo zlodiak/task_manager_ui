@@ -1,3 +1,3 @@
-<p>
-  manager works!
-</p>
+<app-list *ngIf="!isDetailsMode" [tasks]="tasks" [login]="login"></app-list>
+
+<app-details *ngIf="isDetailsMode"></app-details>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Response } from '@angular/http';
 
 import { TasksService } from '../services/tasks.service';
@@ -12,6 +12,11 @@ import 'rxjs/add/operator/map'
 })
 export class ManagerComponent implements OnInit {
 
+	@Input() login: string;
+
+	private isDetailsMode = false;
+	private tasks: any[] = [];
+
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
@@ -21,8 +26,9 @@ export class ManagerComponent implements OnInit {
   private getTasks(): void {
     this.tasksService
         .getTasks()
-        .subscribe(data => {
-                    console.log(JSON.parse(data._body));
+        .subscribe(data => {     
+        						this.tasks = JSON.parse(data._body);
+                    //console.log(typeof this.tasks, this.tasks);                    
                   }, 
                   err => {
                     console.log('err')         

@@ -9,12 +9,16 @@ import { ManagerComponent } from './manager/manager.component';
 
 import { AuthService } from './services/auth.service';
 import { TasksService } from './services/tasks.service';
+import { ListComponent } from './list/list.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    ManagerComponent
+    ManagerComponent,
+    ListComponent,
+    DetailsComponent
   ],
   imports: [
     HttpModule,
