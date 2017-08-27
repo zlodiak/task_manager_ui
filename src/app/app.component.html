@@ -1,6 +1,4 @@
-welcome, {{ login }}
-<br>
-
-<app-auth *ngIf="!isAuthorized" (onAuthorize)="setAuthorizeState($event)"></app-auth>
-
-<app-manager *ngIf="isAuthorized" [login]="login"></app-manager>
+<div class="wrap">
+	<app-auth *ngIf="!isAuthorized" (onAuthorize)="setAuthorizeState($event)"></app-auth>
+	<app-manager *ngIf="isAuthorized" [login]="login"></app-manager>
+</div>

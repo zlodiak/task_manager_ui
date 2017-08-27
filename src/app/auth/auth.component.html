@@ -1,3 +1,12 @@
-<input class="login" id="login" type="text" name="login" [(ngModel)]="login">
-<input class="password" id="password" type="password" name="password" [(ngModel)]="password">
-<button class="authorize-btn" (click)="authorize(login, password)">Авторизоваться</button>
+<div class="wrap">
+	<md-input-container class="login">
+	  <input mdInput id="login" placeholder="Логин" value="" [(ngModel)]="login">
+	</md-input-container>
+
+	<md-input-container class="password">
+	  <input mdInput id="password" placeholder="Пароль" value="" [(ngModel)]="password">
+	</md-input-container>	
+
+	<button md-button class="btn authorize-btn bg-basic" (click)="authorize(login, password)">Авторизоваться</button>
+</div>
+

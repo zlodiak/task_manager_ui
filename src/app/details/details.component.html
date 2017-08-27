@@ -1,43 +1,38 @@
-<table class="task">
+<table class="task table">
 	<tr>
-		<td>Название</td>
+		<td class="head">Название</td>
 		<td>{{ taskObj.title }}</td>
 	</tr>
 
 	<tr>
-		<td>Название</td>
-		<td>{{ taskObj.title }}</td>
-	</tr>
-
-	<tr>
-		<td>Статус</td>
+		<td class="head">Статус</td>
 		<td>{{ taskObj.status }}</td>
 	</tr>
 
 	<tr>
-		<td>Приоритет</td>
+		<td class="head">Приоритет</td>
 		<td>{{ taskObj.priority }}</td>
 	</tr>
 
 	<tr>
-		<td>Затраченное время</td>
-		<td>{{ taskObj.elapsed_time_sec }}</td>
+		<td class="head">Затраченное время</td>
+		<td>{{ secondsFormatter(taskObj.elapsed_time_sec) }}</td>
 	</tr>
 
 	<tr>
-		<td>Планируемое время</td>
-		<td>{{ taskObj.planned_time_sec }}</td>
+		<td class="head">Планируемое время</td>
+		<td>{{ secondsFormatter(taskObj.planned_time_sec) }}</td>
 	</tr>
 
 	<tr>
-		<td>Дата</td>
-		<td>{{ taskObj.date }}</td>
+		<td class="head">Дата создания</td>
+		<td>{{ dateFormatter(taskObj.date) }}</td>
 	</tr>
 
 	<tr>
-		<td>Описание</td>
+		<td class="head">Описание</td>
 		<td>{{ taskObj.body }}</td>
 	</tr>							
 </table>
 
-<button class="back-btn" (click)="back()">Назад к списку задач</button>
+<button md-button class="btn back-btn bg-basic" (click)="back()">Назад к списку задач</button>

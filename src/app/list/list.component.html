@@ -1,40 +1,44 @@
-<table class="tasks" border="1">
+<table class="tasks table">
 	<thead>
 		<tr>
 			<th>
-				<span>status</span>
-				<span (click)="setSortColumn('status', true)">desc</span>
-				<span (click)="setSortColumn('status', false)">asc</span>				
+				<span class="head">Статус</span>
+				<span class="pull-right desc" (click)="setSortColumn('status', true)">
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				</span>
+				<span class="pull-right asc" (click)="setSortColumn('status', false)">
+					<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+				</span>				
 			</th>
 
 			<th>
-				<span>title</span>
-				<span (click)="setSortColumn('title', true)">desc</span>
-				<span (click)="setSortColumn('title', false)">asc</span>				
+				<span class="head">Название</span>
+				<span class="pull-right desc" (click)="setSortColumn('title', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
+				<span class="pull-right asc" (click)="setSortColumn('title', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>				
 			</th>
 
 			<th>
-				<span>date</span>
-				<span (click)="setSortColumn('date', true)">desc</span>
-				<span (click)="setSortColumn('date', false)">asc</span>				
+				<span class="head">Дата создания</span>
+				<span class="pull-right desc" (click)="setSortColumn('date', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
+				<span class="pull-right asc" (click)="setSortColumn('date', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>				
 			</th>
 
 			<th>
-				<span>planned time</span>
-				<span (click)="setSortColumn('planned_time_sec', true)">desc</span>
-				<span (click)="setSortColumn('planned_time_sec', false)">asc</span>				
+				<span class="head">Планируемое время</span>
+				<span class="pull-right desc" (click)="setSortColumn('planned_time_sec', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
+				<span class="pull-right asc" (click)="setSortColumn('planned_time_sec', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>				
 			</th>
 
 			<th>
-				<span>elapsed time</span>
-				<span (click)="setSortColumn('elapsed_time_sec', true)">desc</span>
-				<span (click)="setSortColumn('elapsed_time_sec', false)">asc</span>
+				<span class="head">Затраченное время</span>
+				<span class="pull-right desc" (click)="setSortColumn('elapsed_time_sec', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
+				<span class="pull-right asc" (click)="setSortColumn('elapsed_time_sec', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>
 			</th>
 
 			<th>
-				<span>priority</span>
-				<span (click)="setSortColumn('priority', true)">desc</span>
-				<span (click)="setSortColumn('priority', false)">asc</span>				
+				<span class="head">Приоритет</span>
+				<span class="pull-right desc" (click)="setSortColumn('priority', true)"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
+				<span class="pull-right asc" (click)="setSortColumn('priority', false)"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></span>				
 			</th>
 		</tr>
 	</thead>

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { OrderModule } from 'ngx-order-pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
@@ -24,6 +26,9 @@ import { DateService } from './services/date.service';
     DetailsComponent
   ],
   imports: [
+    MdInputModule,
+    MdButtonModule,
+    BrowserAnimationsModule,
     OrderModule,
     HttpModule,
     FormsModule,
