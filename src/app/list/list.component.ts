@@ -7,6 +7,9 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
+  private sortColumn: string = 'status';
+  private sortDirection: boolean = true;
+
 	@Input() tasks: any[];
 	@Input() login: string;
 
@@ -17,9 +20,15 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   	console.log(this.tasks);
   }
+
   private openDetails(taskObj) {
   	//console.log(taskObj);
   	this.onOpenDetails.emit(taskObj);  	
   }
+
+  private setSortColumn(column, direction) {
+      this.sortColumn = column;
+      this.sortDirection = direction;
+  };
 
 }

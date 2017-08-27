@@ -1,12 +1,57 @@
 <table class="tasks" border="1">
-	<tr class="task" *ngFor="let task of tasks | orderBy: 'status': true" (click)="openDetails(task)">
-		<td class="status" [innerHTML]="task.status" *ngIf="task.login == 'kalinin'"></td>
-		<td class="title" [innerHTML]="task.title" *ngIf="task.login == 'kalinin'"></td>
-		<td class="date" [innerHTML]="task.date" *ngIf="task.login == 'kalinin'"></td>
-		<td class="planned-time" [innerHTML]="task.planned_time_sec" *ngIf="task.login == 'kalinin'"></td>
-		<td class="elapsed-time" [innerHTML]="task.elapsed_time_sec" *ngIf="task.login == 'kalinin'"></td>
-	</tr>
+	<thead>
+		<tr>
+			<th>
+				<span>status</span>
+				<span (click)="setSortColumn('status', true)">desc</span>
+				<span (click)="setSortColumn('status', false)">asc</span>				
+			</th>
+
+			<th>
+				<span>title</span>
+				<span (click)="setSortColumn('title', true)">desc</span>
+				<span (click)="setSortColumn('title', false)">asc</span>				
+			</th>
+
+			<th>
+				<span>date</span>
+				<span (click)="setSortColumn('date', true)">desc</span>
+				<span (click)="setSortColumn('date', false)">asc</span>				
+			</th>
+
+			<th>
+				<span>planned time</span>
+				<span (click)="setSortColumn('planned_time_sec', true)">desc</span>
+				<span (click)="setSortColumn('planned_time_sec', false)">asc</span>				
+			</th>
+
+			<th>
+				<span>elapsed time</span>
+				<span (click)="setSortColumn('elapsed_time_sec', true)">desc</span>
+				<span (click)="setSortColumn('elapsed_time_sec', false)">asc</span>
+			</th>
+
+			<th>
+				<span>priority</span>
+				<span (click)="setSortColumn('priority', true)">desc</span>
+				<span (click)="setSortColumn('priority', false)">asc</span>				
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr class="task" *ngFor="let task of tasks | orderBy: sortColumn: sortDirection" (click)="openDetails(task)">
+			<td class="status" [innerHTML]="task.status" *ngIf="task.login == 'kalinin'"></td>
+			<td class="title" [innerHTML]="task.title" *ngIf="task.login == 'kalinin'"></td>
+			<td class="date" [innerHTML]="task.date" *ngIf="task.login == 'kalinin'"></td>
+			<td class="planned-time" [innerHTML]="task.planned_time_sec" *ngIf="task.login == 'kalinin'"></td>
+			<td class="elapsed-time" [innerHTML]="task.elapsed_time_sec" *ngIf="task.login == 'kalinin'"></td>
+			<td class="priority" [innerHTML]="task.priority" *ngIf="task.login == 'kalinin'"></td>
+		</tr>	
+	</tbody>
 </table>
+
+
 
 
 
