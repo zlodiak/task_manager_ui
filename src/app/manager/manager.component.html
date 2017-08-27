@@ -1,3 +1,8 @@
-<app-list *ngIf="!isDetailsMode" [tasks]="tasks" [login]="login"></app-list>
+<app-list *ngIf="!isDetailsMode" 
+					[tasks]="tasks" 
+					[login]="login" 
+					(onOpenDetails)="fillDetails($event)"></app-list>
 
-<app-details *ngIf="isDetailsMode"></app-details>
+<app-details 	*ngIf="isDetailsMode" 
+							[taskObj]="taskObj" 
+							(onChangeDetailsMode)="setDetailsMode(mode)"></app-details>

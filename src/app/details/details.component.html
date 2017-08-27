@@ -1,3 +1,43 @@
-<p>
-  details works!
-</p>
+<table class="task">
+	<tr>
+		<td>Название</td>
+		<td>{{ taskObj.title }}</td>
+	</tr>
+
+	<tr>
+		<td>Название</td>
+		<td>{{ taskObj.title }}</td>
+	</tr>
+
+	<tr>
+		<td>Статус</td>
+		<td>{{ taskObj.status }}</td>
+	</tr>
+
+	<tr>
+		<td>Приоритет</td>
+		<td>{{ taskObj.priority }}</td>
+	</tr>
+
+	<tr>
+		<td>Затраченное время</td>
+		<td>{{ taskObj.elapsed_time_sec }}</td>
+	</tr>
+
+	<tr>
+		<td>Планируемое время</td>
+		<td>{{ taskObj.planned_time_sec }}</td>
+	</tr>
+
+	<tr>
+		<td>Дата</td>
+		<td>{{ taskObj.date }}</td>
+	</tr>
+
+	<tr>
+		<td>Описание</td>
+		<td>{{ taskObj.body }}</td>
+	</tr>							
+</table>
+
+<button class="back-btn" (click)="back()">Назад к списку задач</button>

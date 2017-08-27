@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -10,13 +10,16 @@ export class ListComponent implements OnInit {
 	@Input() tasks: any[];
 	@Input() login: string;
 
+	@Output() onOpenDetails = new EventEmitter<Object>();
+
   constructor() { }
 
   ngOnInit() {
   	console.log(this.tasks);
   }
   private openDetails(taskObj) {
-  	console.log(taskObj);
+  	//console.log(taskObj);
+  	this.onOpenDetails.emit(taskObj);  	
   }
 
 }

@@ -16,6 +16,7 @@ export class ManagerComponent implements OnInit {
 
 	private isDetailsMode = false;
 	private tasks: any[] = [];
+  private taskObj: Object = {};
 
   constructor(private tasksService: TasksService) { }
 
@@ -34,5 +35,15 @@ export class ManagerComponent implements OnInit {
                     console.log('err')         
                   });    
   };  
+
+  private fillDetails(taskObj): void {
+    this.isDetailsMode = true;   
+    this.taskObj = taskObj;
+    console.log(this.taskObj);
+  };
+
+  private setDetailsMode(mode): void {
+    this.isDetailsMode = mode;
+  };
 
 }
